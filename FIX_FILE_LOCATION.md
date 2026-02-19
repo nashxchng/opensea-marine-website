@@ -126,3 +126,4 @@ If you can't rebuild, you can manually fix paths in the HTML files:
 3. **Check images load**
 4. **Verify navigation works**
 
+

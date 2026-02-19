@@ -43,6 +43,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
+  const [aboutOpen, setAboutOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -86,12 +87,39 @@ export default function Navbar() {
             >
               Home
             </Link>
-            <Link
-              href="/about"
-              className="text-gray-700 hover:text-ocean-600 font-medium transition-colors"
+            <div
+              className="relative"
+              onMouseEnter={() => setAboutOpen(true)}
+              onMouseLeave={() => setAboutOpen(false)}
             >
-              About
-            </Link>
+              <button className="flex items-center space-x-1 text-gray-700 hover:text-ocean-600 font-medium transition-colors">
+                <span>About</span>
+                <ChevronDown className="h-4 w-4" />
+              </button>
+              <AnimatePresence>
+                {aboutOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-100 py-2"
+                  >
+                    <Link
+                      href="/about"
+                      className="block px-4 py-2 text-gray-700 hover:bg-ocean-50 hover:text-ocean-600 transition-colors"
+                    >
+                      About Us
+                    </Link>
+                    <Link
+                      href="/team"
+                      className="block px-4 py-2 text-gray-700 hover:bg-ocean-50 hover:text-ocean-600 transition-colors"
+                    >
+                      Executive Leadership Team
+                    </Link>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
             <div
               className="relative"
               onMouseEnter={() => setServicesOpen(true)}
@@ -163,6 +191,13 @@ export default function Navbar() {
                 onClick={() => setIsOpen(false)}
               >
                 About
+              </Link>
+              <Link
+                href="/team"
+                className="block text-gray-700 hover:text-ocean-600 font-medium pl-4"
+                onClick={() => setIsOpen(false)}
+              >
+                Executive Leadership Team
               </Link>
               <div className="space-y-2">
                 <div className="text-gray-700 font-medium mb-2">Services</div>
