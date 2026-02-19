@@ -31,10 +31,9 @@ const teamMembers: TeamMember[] = [
     image: '/images/team/kingsley-ananenu.jpeg',
     bio: 'Provides strategic oversight across corporate governance, systems development, performance management, and business transformation initiatives. Strengthens operational controls and reporting frameworks across the organization.',
     qualifications: [
-      'BSc (Hons) Business Information Systems, University of Wales, Cardiff',
       'LLB (Hons), University of Wales, Cardiff',
     ],
-    experience: 'Enterprise systems architecture & regulatory program delivery',
+    experience: 'Over 20 years of Legal and IT experience, combining strategic thinking with deep technical expertise',
   },
   {
     name: 'John Onyekweli Opene',
@@ -109,8 +108,8 @@ export default function TeamPage() {
                       src={member.image}
                       alt={member.name}
                       fill
-                      className="object-cover object-center"
-                      style={{ objectPosition: member.name === 'Kingsley Ananenu' ? 'center 20%' : 'center' }}
+                      className="object-cover"
+                      style={{ objectPosition: 'center 30%' }}
                     />
                   </div>
                   <div className="flex-1 min-w-0">
